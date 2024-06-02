@@ -1,16 +1,25 @@
-<h1><%= @place["name"] %></h1>
+<% if @current_user %>
 
-<h2>My Entries</h2>
-<% for entry in @entries %>
-  <h3><%= entry["title"] %></h3>
-  <h4><%= entry["occurred_on"] %></h4>
-  <p><%= entry["description"] %></p>
+  <h1><%= @place.name %></h1>
+
+  <h2>My Entries</h2>
+
+  <% @entries.each do |entry| %>
+    <h3><%= entry.title %></h3>
+    <h4><%= entry.occurred_on %></h4>
+    <p><%= entry.description %></p>
+  <% end %>
+
+  <p>
+    <a href="/entries/new?place_id=<%= @place.id %>">New Entry</a>
+  </p>
+
+  <p>
+    <a href="/places">Back to All Places</a>
+  </p>
+
+<% else %>
+
+  <p>You must login to view and edit places and entries.</p>
+
 <% end %>
-
-<p>
-  <a href="/entries/new?place_id=<%= @place["id"] %>">New Entry</a>
-</p>
-
-<p>
-  <a href="/places">Back to All Places</a>
-</p>
