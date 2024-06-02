@@ -1,11 +1,13 @@
-<h1>Places</h1>
+<div class="container mt-4">
+  <h1 class="text-center mb-4">Places</h1>
 
-<ul>
-  <% for place in @places %>
-    <li><a href="/places/<%= place["id"] %>"><%= place["name"] %></a></li>
-  <% end %>
-</ul>
+  <ul class="list-group">
+    <% @places.each do |place| %>
+      <li class="list-group-item"><a href="/places/<%= place["id"] %>"><%= place["name"] %></a></li>
+    <% end %>
+  </ul>
 
-<p>
-  <a href="/places/new">New place</a>
-</p>
+  <div class="text-center mt-4">
+    <a href="/places/new" class="btn btn-primary">New Place</a>
+  </div>
+</div>

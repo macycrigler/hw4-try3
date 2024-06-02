@@ -23,11 +23,13 @@
         <a class="navbar-brand" href="/">My Travel Journal</a>
         <span class="navbar-text">
           <% @user = User.find_by({ "id" => session["user_id"] }) %>
+
           <% if @user == nil %>
             <a href="/users/new">Sign Up</a> | <a href="/login">Login</a>
           <% else %>
             <%= @user["username"] %> | <a href="/logout">Logout</a>
           <% end %>
+          
         </span>
       </div>
     </nav>

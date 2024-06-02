@@ -1,14 +1,20 @@
-<% if @current_user %>
-  <h1>New Place</h1>
+<div class="container mt-4">
+  <% if @current_user %>
+    <h1 class="mb-4">New Place</h1>
 
-  <form action="/places" method="post">
-    <p>
-      <label for="name_input">Name</label>
-      <input type="text" name="place[name]" id="name_input">
-    </p>
+    <form action="/places" method="post">
+      <div class="mb-3">
+        <label for="name_input" class="form-label">Name</label>
+        <input type="text" name="place[name]" class="form-control" id="name_input">
+      </div>
 
-    <button type="submit">Save</button>
-  </form>
-<% else %>
-  <p>You must log in to view and edit places.</p>
-<% end %>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+
+    <div class="mt-4">
+      <a href="/places" class="btn btn-primary">Back to All Places</a>
+    </div>
+  <% else %>
+    <p>You must log in to view and edit places.</p>
+  <% end %>
+</div>
